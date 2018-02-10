@@ -1,21 +1,24 @@
 package com.sc.jysc.entity;
 
+
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * Created by Jackbing on 2017/12/20.
  */
 @Entity
+@Table(name = "basic_role")
 public class BasicRole {
 
     @Id
     @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid",strategy = "uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
     private String role;
     private String name;

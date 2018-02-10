@@ -19,7 +19,7 @@ public class Product implements Serializable{
 
     @Id
     @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid",strategy = "uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     @ApiModelProperty("逻辑Id")
     private String id;
     @ApiModelProperty("创建时间")

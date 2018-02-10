@@ -1,16 +1,16 @@
 package com.sc.jysc.controller;
 
+import com.sc.jysc.config.DefaultServiceException;
 import com.sc.jysc.config.Result;
 import com.sc.jysc.config.ResultGenerator;
 import com.sc.jysc.entity.BasicUser;
+import com.sc.jysc.entity.Sort;
 import com.sc.jysc.sevice.DefaultUserService;
+import com.sc.jysc.sevice.SortEditService;
 import com.sc.jysc.util.CurrentPage;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/test/")
 public class TestController {
+
 
 
     @Autowired
@@ -35,4 +36,7 @@ public class TestController {
     public Result<CurrentPage<BasicUser>> getUsers(@RequestParam(required = true) Integer pageNum, @RequestParam(required = true) Integer pageSize){
         return ResultGenerator.genSuccess(userService.getUsers(pageNum,pageSize));
     }
+
+
+
 }

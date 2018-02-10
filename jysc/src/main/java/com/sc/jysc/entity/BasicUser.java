@@ -15,11 +15,12 @@ import java.util.Collection;
 import java.util.List;
 @ApiModel
 @Entity
+@Table(name = "basic_user")
 public class BasicUser implements UserDetails{
 
     @Id
     @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid",strategy = "uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     @ApiModelProperty("用户Id")
     private String uid;
     @ApiModelProperty("用户账号")
