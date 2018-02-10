@@ -13,7 +13,19 @@ public class DataManageImpl extends DataManage implements DataSet{
     }
 
     public Serializable save(Object object) {
+
         return this.getSession().save(object);
     }
+
+    @Override
+    public void remove(Object object) {
+        this.getSession().delete(object);
+    }
+
+    @Override
+    public void remove(Serializable id, String var) {
+        this.getSession().remove(this.getSession().get(var,id));
+    }
+
 
 }

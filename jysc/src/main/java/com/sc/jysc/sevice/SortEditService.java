@@ -45,18 +45,22 @@ public class SortEditService {
     /**
      *删除分类
      */
-    public boolean deleteSort(String id){
+    public boolean deleteSort(String id) throws DefaultServiceException {
         try{
-            //this.sessionFactory.getCurrentSession().remove(this.sessionFactory.getCurrentSession().get(Sort.class,id));
+            ds.remove(id,Sort.class.getName());
         }catch (Exception e){
-            e.printStackTrace();
-            return false;
+            throw new DefaultServiceException("删除失败！");
         }
         return true;
     }
 
-    public Object get(String id){
-        return ds.get(id,Sort.class.getName());
+    public Object get(String id) throws DefaultServiceException {
+        try{
+            return ds.get(id,Sort.class.getName());
+        }catch (Exception e){
+            throw new DefaultServiceException("查询失败！");
+        }
+
     }
 
 }
